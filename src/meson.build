@@ -20,3 +20,13 @@ create_threads_exe = executable(
         ]
     )
 
+# File creation benchmark.
+create_files_exe = executable(
+    'create_files',
+    ['create_files.c'],
+    include_directories: [root_inc],
+    dependencies: [
+        common_dep,
+        ]
+    )
+
