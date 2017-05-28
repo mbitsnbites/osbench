@@ -13,6 +13,13 @@ Create 100 threads and wait for them to finish. Each thread does nothing (just r
 * POSIX: `pthread_create()`, `pthread_join()`
 * WIN32: `_beginthreadex()`, `WaitForSingleObject()`, `CloseHandle()`
 
+### create_processes
+
+Create 100 processes and wait for them to finish. Each process does nothing (just exit).
+
+* Unix: `fork()`, `waitpid()`
+* WIN32: Not implemented (Windows lacks the corresponding functionality).
+
 ### create_files
 
 Create 65,534 files, write 32 byts of data to each file, and then delete them.

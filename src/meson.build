@@ -20,6 +20,18 @@ create_threads_exe = executable(
         ]
     )
 
+# Process creation benchmark.
+if target_machine.system() != 'windows'
+  create_processes_exe = executable(
+      'create_processes',
+      ['create_processes.c'],
+      include_directories: [root_inc],
+      dependencies: [
+          common_dep,
+          ]
+      )
+endif
+
 # File creation benchmark.
 create_files_exe = executable(
     'create_files',
