@@ -49,10 +49,12 @@ static void create_file(const char* file_name) {
   };
 
   FILE *f = fopen(file_name, "wb");
-  if (f) {
-    fwrite(FILE_DATA, 1, sizeof(FILE_DATA), f);
-    fclose(f);
+  if (!f) {
+    fprintf(stderr, "*** Unable to create file \"%s\"\n", file_name);
+    exit(1);
   }
+  fwrite(FILE_DATA, 1, sizeof(FILE_DATA), f);
+  fclose(f);
 }
 
 static void delete_file(const char* file_name) {
@@ -74,7 +76,7 @@ int main(int argc, const char** argv) {
   size_t path_len = root_path_len + 1 + hex_len;
   char* file_name = (char*)malloc(path_len + 1);
   if (!file_name) {
-    fprintf(stderr, "Out of memory!\n");
+    fprintf(stderr, "*** Out of memory!\n");
     exit(1);
   }
   strncpy(file_name, argv[1], root_path_len);
