@@ -9,6 +9,10 @@ subdir('common')
 # We need a threading library.
 thread_dep = dependency('threads', required: true)
 
+# We need the math library on some systems.
+cc = meson.get_compiler('c')
+m_dep = cc.find_library('m', required : false)
+
 # Threading benchmark.
 create_threads_exe = executable(
     'create_threads',
@@ -27,7 +31,7 @@ if target_machine.system() != 'windows'
       ['create_processes.c'],
       include_directories: [root_inc],
       dependencies: [
-          common_dep,
+          common_dep
           ]
       )
 endif
@@ -49,6 +53,7 @@ create_files_exe = executable(
     include_directories: [root_inc],
     dependencies: [
         common_dep,
+        m_dep
         ]
     )
 
@@ -58,7 +63,7 @@ mem_alloc_exe = executable(
     ['mem_alloc.c'],
     include_directories: [root_inc],
     dependencies: [
-        common_dep,
+        common_dep
         ]
     )
 
