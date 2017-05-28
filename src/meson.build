@@ -30,3 +30,13 @@ create_files_exe = executable(
         ]
     )
 
+# Memory allocation benchmark.
+mem_alloc_exe = executable(
+    'mem_alloc',
+    ['mem_alloc.c'],
+    include_directories: [root_inc],
+    dependencies: [
+        common_dep,
+        ]
+    )
+
