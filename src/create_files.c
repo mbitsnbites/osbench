@@ -13,7 +13,7 @@ static const double BENCHMARK_TIME = 5.0;
 static const int NUM_FILES = 65534;
 
 static double my_log2(double x) {
-  static const double LOG2SCALE = 1.0 / log(2.0);
+  static const double LOG2SCALE = 1.442695040888963;  // 1.0 / log(2.0);
   return log(x) * LOG2SCALE;
 }
 
