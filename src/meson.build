@@ -32,6 +32,16 @@ if target_machine.system() != 'windows'
       )
 endif
 
+# Launch programs benchmark.
+launch_programs_exe = executable(
+    'launch_programs',
+    ['launch_programs.c'],
+    include_directories: [root_inc],
+    dependencies: [
+        common_dep
+        ]
+    )
+
 # File creation benchmark.
 create_files_exe = executable(
     'create_files',

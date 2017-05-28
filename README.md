@@ -20,6 +20,13 @@ Create 100 processes and wait for them to finish. Each process does nothing (jus
 * Unix: `fork()`, `waitpid()`
 * WIN32: Not implemented (Windows lacks the corresponding functionality).
 
+### launch_programs
+
+Launch 100 programs and wait for them to finish. Each program does nothing (just exit).
+
+* Unix: `fork()`, `execlp()`, `waitpid()`
+* WIN32: `CreateProcess()`, `WaitForSingleObject()`, `CloseHandle()`
+
 ### create_files
 
 Create 65,534 files, write 32 byts of data to each file, and then delete them.
