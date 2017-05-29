@@ -4,7 +4,9 @@
 #include <stdlib.h>
 
 static const double BENCHMARK_TIME = 5.0;
-static const int NUM_ALLOCS = 1000000;
+#define NUM_ALLOCS 1000000
+
+static void* s_addresses[NUM_ALLOCS];
 
 int main(int argc, const char** argv) {
   printf("Benchmark: Allocate/free %d memory chunks (4-128 bytes)...\n", NUM_ALLOCS);
@@ -15,16 +17,14 @@ int main(int argc, const char** argv) {
   while (get_time() - start_t < BENCHMARK_TIME) {
     const double t0 = get_time();
 
-    void* addresses[NUM_ALLOCS];
-
     for (int i = 0; i < NUM_ALLOCS; ++i) {
       const int memory_size = ((i % 32) + 1) * 4;
-      addresses[i] = malloc(memory_size);
-      ((char*)addresses[i])[0] = 1;
+      s_addresses[i] = malloc(memory_size);
+      ((char*)s_addresses[i])[0] = 1;
     }
 
     for (int i = 0; i < NUM_ALLOCS; ++i) {
-      free(addresses[i]);
+      free(s_addresses[i]);
     }
 
     double dt = get_time() - t0;
