@@ -2,6 +2,17 @@
 
 This is a collection of benchmarks that aim to measure the performance of operating system primitives, such as process and thread creation.
 
+## Building
+
+To build the benchmarks you need a C compiler, [meson](http://mesonbuild.com/) and [ninja](https://ninja-build.org/).
+
+```bash
+mkdir out
+cd out
+meson --buildtype=release ../src
+ninja
+```
+
 ## Micro benchmarks
 
 All benchmarks run their work for five seconds, and the fastest pass is reported.
