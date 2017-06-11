@@ -1,3 +1,6 @@
+// This is free and unencumbered software released into the public domain.
+// For more information, see UNLICENSE.
+
 #include "common/time.h"
 
 #if defined(WIN32)
