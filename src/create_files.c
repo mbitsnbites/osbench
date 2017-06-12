@@ -26,7 +26,7 @@ static int num_hex_chars(int max_int) {
 }
 
 static char path_separator() {
-#if defined(WIN32)
+#if defined(_WIN32)
   return '\\';
 #else
   return '/';

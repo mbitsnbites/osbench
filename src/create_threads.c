@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-#if defined(WIN32)
+#if defined(_WIN32)
 #define WIN32_LEAN_AND_MEAN
 #include <process.h>
 #include <windows.h>
@@ -13,7 +13,7 @@
 #include <pthread.h>
 #endif
 
-#if defined(WIN32)
+#if defined(_WIN32)
 
 // WIN32 thread implementation.
 typedef HANDLE thread_t;
@@ -57,8 +57,9 @@ static void join_thread(thread_t thread) {
 
 #endif  // WIN32
 
+#define NUM_THREADS 100
+
 static const double BENCHMARK_TIME = 5.0;
-static const int NUM_THREADS = 100;
 
 int main() {
   printf("Benchmark: Create/teardown of %d threads...\n", NUM_THREADS);

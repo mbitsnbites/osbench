@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#if defined(WIN32)
+#if defined(_WIN32)
 
 // Windows implementation.
 #define WIN32_LEAN_AND_MEAN
@@ -83,8 +83,9 @@ static void wait_process(process_t pid) {
 
 #endif
 
+#define NUM_PROGRAMS 100
+
 static const double BENCHMARK_TIME = 5.0;
-static const int NUM_PROGRAMS = 100;
 
 int main(int argc, char** argv) {
   // When called as a child-process, the first argument is defined.

@@ -3,21 +3,21 @@
 
 #include "common/time.h"
 
-#if defined(WIN32)
+#if defined(_WIN32)
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #else
 #include <sys/time.h>
 #endif
 
-#if defined(WIN32)
+#if defined(_WIN32)
 static LARGE_INTEGER s_start;
 static double s_period = 0.0;
 #endif
 
 double get_time() {
   double result;
-#if defined(WIN32)
+#if defined(_WIN32)
   LARGE_INTEGER count;
   if (s_period == 0.0) {
     LARGE_INTEGER frequency;
