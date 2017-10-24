@@ -12,6 +12,8 @@ static const double BENCHMARK_TIME = 5.0;
 static void* s_addresses[NUM_ALLOCS];
 
 int main(int argc, const char** argv) {
+  (void)argc;
+  (void)argv;
   printf("Benchmark: Allocate/free %d memory chunks (4-128 bytes)...\n", NUM_ALLOCS);
   fflush(stdout);
 
@@ -21,7 +23,7 @@ int main(int argc, const char** argv) {
     const double t0 = get_time();
 
     for (int i = 0; i < NUM_ALLOCS; ++i) {
-      const int memory_size = ((i % 32) + 1) * 4;
+      const size_t memory_size = ((i % 32) + 1) * 4;
       s_addresses[i] = malloc(memory_size);
       ((char*)s_addresses[i])[0] = 1;
     }
