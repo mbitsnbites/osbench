@@ -1,3 +1,5 @@
+## This repo has moved to: https://gitlab.com/mbitsnbites/osbench
+
 # OSBench
 
 This is a collection of benchmarks that aim to measure the performance of operating system primitives, such as process and thread creation.
